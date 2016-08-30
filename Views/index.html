@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Zip Code Search</title>
+    <script src="Scripts/jquery-3.1.0.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-route.js"></script>
+    <script src="Scripts/angular-block-ui.js"></script>
+    <script src="Scripts/angular-ui/ui-bootstrap.js"></script>
+    <script src="app.js"></script>
+    <script src="controller/codeController.js"></script>
+    <style>
+        table, th, td {
+            border: 1px solid grey;
+            border-collapse: collapse;
+            padding: 5px;
+        }
+
+            table tr:nth-child(odd) {
+                background-color: #f1f1f1;
+            }
+
+            table tr:nth-child(even) {
+                background-color: #ffffff;
+            }
+    </style>
+</head>
+<body ng-app="myApp">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Zip Code Search</a>
+            </div>
+                       
+        </div>
+    </nav>
+    <div style="padding-left:90px ;padding-top:100px"  ng-controller="codeController">
+        <div>
+            <div >
+                <div class="alert alert-info">
+                    <strong>Info!</strong> Before starting ,Please Update EE.txt file path in Web.config...
+                </div>
+                <input type="text" ng-model="querytext" style="width:350px" ng-change="loadData()" placeholder="Please Enter zip code or place....">
+                <div style="padding-top:50px"></div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Code</th>
+                            <th>Place</th>
+                        </tr>
+                    </thead>
+                    <tr ng-repeat="x in results">
+                        <td>{{ x.code }}</td>
+                        <td>{{ x.place }}</td>
+                    </tr>
+                </table>
+           
+            </div>
+            </div>
+            </div>
+    
+</body>
+</html>
